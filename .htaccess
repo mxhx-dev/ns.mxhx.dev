@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# require https
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R]
+
+# redirect to mxhx.dev
+RewriteRule ^/?(.*)$ https://mxhx.dev/ [R=307,L]
+</IfModule>
